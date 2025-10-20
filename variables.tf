@@ -1,3 +1,8 @@
+variable "ingress_ports" {
+  description = "List of ports to open for ingress."
+  type        = list(number)
+  default     = [22, 80]
+}
 variable "key_name" {
   description = "The key pair name to use for the EC2 instance."
   type        = string

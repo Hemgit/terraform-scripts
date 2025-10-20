@@ -24,20 +24,15 @@ resource "aws_security_group" "webserver_sg" {
   name        = "webserver_sg"
   description = "Allow SSH and HTTP access"
 
-  ingress {
-    description = "SSH"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    description = "HTTP"
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+  dynamic "ingress" {
+    for_each = var.ingress_ports
+    content {
+      description = "Allow port ${ingress.value}"
+      from_port   = ingress.value
+      to_port     = ingress.value
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
   }
 
   egress {
