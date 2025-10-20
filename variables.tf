@@ -3,11 +3,6 @@ variable "key_name" {
   type        = string
   default     = "test1"
 }
-variable "image_id" {
-  description = "The AMI ID to use for the web server instance."
-  type        = string
-  default     = "ami-04c08fd8aa14af291"
-}
 variable "instance_type" {
   description = "The type of instance to use for the web server."
   type        = string
