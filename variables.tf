@@ -14,7 +14,3 @@ variable "instance_type" {
   default     = "t3.micro"
 }
 
-output "web_server_public_dns" {
-  description = "The public DNS name of the web server instance"
-  value       = aws_instance.web_server[*].public_dns
-}

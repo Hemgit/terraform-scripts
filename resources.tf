@@ -17,7 +17,7 @@ resource "aws_instance" "web_server" {
   user_data = file("userdata.sh")
 
   tags = {
-    Name = "webserver"
+    Name = "webserver-${count.index + 1}"
   }
 }
 
