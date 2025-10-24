@@ -18,6 +18,7 @@ resource "aws_instance" "web_server" {
   provisioner "remote-exec" {
     inline = [
       "echo 'hemanth is my name' | sudo tee /tmp/index.html",
+      "sleep 120",
       "sudo mv /tmp/index.html /var/www/html/index.html"
     ]
 
