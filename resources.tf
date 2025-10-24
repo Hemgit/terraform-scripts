@@ -17,7 +17,8 @@ data "aws_ami" "amazon_linux" {
 resource "aws_instance" "web_server" {
   provisioner "remote-exec" {
     inline = [
-      "echo 'hemanth is my name' | sudo tee /var/www/html/index.html"
+      "echo 'hemanth is my name' | sudo tee /tmp/index.html",
+      "sudo mv /tmp/index.html /var/www/html/index.html"
     ]
 
     connection {
