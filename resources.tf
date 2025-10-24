@@ -57,4 +57,3 @@ resource "aws_instance" "web_server" {
     vpc_id = "vpc-02a52b7589fb33e65"
   }
 
-resource "aws_security_group" "webserver_sg" {
